@@ -25,7 +25,7 @@
         </div>
         <div class="container-md-12">
             <div class="container-md-6">
-                <img src="{{mars.featured_img_url}}" class="img-fluid" alt="featured image">
+                <img src={{mars.featured_img_url}} class="img-fluid" alt="featured image">
             </div>
             <div  class="container-md-3">
                 <p>{{mars.facts}}</p>
@@ -33,7 +33,16 @@
         </div>
         <div class="container-md-12" margin="auto">
             <h2>Mars Hemispheres</h2>
-            <img src="{{mars.hemisphere_urls}}" alt="mars hemispheres">
+                <div class="row row-cols-1 row-cols-md-4">
+                {% for name in  mars.hemisphere_image_urls %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{name['img_url']}}" alt="mars hemispheres">
+                    <div class="card-body">
+                      <h5 class="card-title">{{name['title']}}</h5>
+                    </div>
+                  </div>
+                {% endfor %}
+                </div>
         </div>
     </main>
 </body>
